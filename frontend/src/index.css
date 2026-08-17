@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0B1120;
+  --color-surface: #151F32;
+  --color-surface-highlight: #1E293B;
+  --color-primary: #34D399; /* Emerald 400 */
+  --color-primary-hover: #10B981; /* Emerald 500 */
+  --color-accent: #F59E0B; /* Warm accent */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, white 10%, transparent);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+  
+  .bg-surfaceHighlight {
+    background-color: var(--color-surface-highlight);
+  }
+  .text-textPrimary {
+    color: var(--color-text-primary);
+  }
+  .text-textSecondary {
+    color: var(--color-text-secondary);
+  }
+  .text-accent {
+    color: var(--color-accent);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .hover\:bg-primaryHover:hover {
+    background-color: var(--color-primary-hover);
+  }
+}
