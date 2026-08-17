@@ -11,8 +11,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<ItineraryResponse | null>(null);
 
-  // Use NEXT_PUBLIC_API_URL injected via vite.config.ts define, or fallback to an empty string for relative paths
-  const apiBaseUrl = (process.env.NEXT_PUBLIC_API_URL || import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+  // Use NEXT_PUBLIC_API_URL injected via vite.config.ts define, or fallback to the vercel backend URL
+  const apiBaseUrl = (process.env.NEXT_PUBLIC_API_URL || import.meta.env.VITE_API_URL || 'https://tripcraft-backend.vercel.app').replace(/\/$/, '');
 
   const handleSubmit = async (data: any) => {
     setIsLoading(true);
